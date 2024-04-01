@@ -83,7 +83,7 @@ inputFileData = readFileSync(inputFile).toString();
 
 
 // trenne die Zeilen voneinander und speichere sie als ein Array
-inputFileData = inputFileData.split("\r\n");
+inputFileData = inputFileData.split("\n");
 
 // Tipp 1: Brauchen wir die erste Zeile uberhaupt?
 // trenne jedes Unterarray, was eine Zeile darstellt, nochmal 
@@ -96,7 +96,7 @@ for (let i = 0; i < inputFileData.length; i++) {
 }
 
 if(verboseOptionIndex === true) {
-    console.log(inputData, "\r\n");
+    console.log(inputData, "\n");
 }
 
 
@@ -123,7 +123,7 @@ for (let i = 0; i < outputData.length; i++) {
 
 
 // fuge alle Zeilen wieder zu einem langen Text zusammen
-outputData = outputData.join("\r\n");
+outputData = outputData.join("\n");
 
 
 // speichere den Text in die in Zeile 29 angegebene Datei
