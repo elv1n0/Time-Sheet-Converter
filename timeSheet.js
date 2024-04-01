@@ -1,5 +1,6 @@
 // wir laden uns zwei Funktionen aus dem "fs" Modul, aehnlich wie #include <stdio.h>
 import { readFileSync, writeFileSync } from 'node:fs';
+import { parseArgs } from 'node:util';
 
 
 // wir definieren unsere Variabeln
@@ -23,7 +24,25 @@ let outputData = [
     ],
 ]
 
-// holen uns das input Argument/Parameter aus der Befehlszeile 
+const args = process.argv.slice(2);
+
+
+// holen uns das input Argument/Parameter aus der Befehlszeile
+const options = {
+    input: {
+        type: "string",
+    },
+    output: {
+        type: "string",
+    },
+    verbose: {
+        type: "boolean",
+        short: "v",
+    },
+}
+
+const {  values, positionals } = parseArgs({args, options})
+
 let inputIndex = process.argv.indexOf("--input");
 
 if (inputIndex === -1) {
